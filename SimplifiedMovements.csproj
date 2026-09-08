@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <GameDirectory Condition="'$(GameDirectory)' == '' and '$(GAME_PATH)' != ''">$(GAME_PATH)</GameDirectory>
+    <GameDirectory Condition="'$(GameDirectory)' == '' and Exists('/home/rushell/Desktop/gunsaw-demo-win/Assembly-CSharp.dll')">/home/rushell/Desktop/gunsaw-demo-win</GameDirectory>
+    <GameDirectory Condition="'$(GameDirectory)' == '' and Exists('C:\Games\Gunsaw\Gunsaw_Data\Managed\Assembly-CSharp.dll')">C:\Games\Gunsaw</GameDirectory>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AddImplicitlyTypedReferences>false</AddImplicitlyTypedReferences>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+    <Reference Include="mscorlib">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/System.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp" Publicize="true">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(GameDirectory)/BepInEx/core/BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(GameDirectory)/BepInEx/core/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(GameDirectory)/Gunsaw_Data/Managed/UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
