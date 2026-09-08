@@ -4,7 +4,7 @@ using UnityEngine;
 using BepInEx;
 using HarmonyLib;
 
-[BepInPlugin("com.rushellxyz.simplifiedmovements", "Simplified Movements", "0.0.0")]
+[BepInPlugin("com.rushellxyz.simplifiedmovements", "Simplified Movements", "1.0.0")]
 public class Plugin : BaseUnityPlugin
 {
     void Awake()
